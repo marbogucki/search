@@ -1,0 +1,8 @@
+<ng-container *ngIf="(users | async) as usersData">
+  <div *ngFor="let user of usersData">
+    <h4>{{ user.name }}</h4>
+    <p>{{ user.email }}</p>
+    <button (click)="removeUser(user)">Remove</button>
+    <hr />
+  </div>
+</ng-container>

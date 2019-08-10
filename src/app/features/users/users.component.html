@@ -1,0 +1,6 @@
+<app-search
+  (emitedQuery)="searchUsers($event)"></app-search>
+
+<app-users-list
+    [users]="users"
+    (userToRemoved)="removeUser($event)"></app-users-list>

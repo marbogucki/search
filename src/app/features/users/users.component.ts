@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {UsersService} from './services/users.service';
 import {User} from './types/user.type';
-import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, map, switchMap, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-users',
@@ -28,11 +28,6 @@ export class UsersComponent implements OnInit {
   }
 
   removeUser(user: User) {
-    this.usersService.removeUser(user.id)
-      .subscribe(data => console.log(data));
-  }
-
-  searchUsers(query: string) {
-    this.usersQuerySubject.next(query);
+    this.usersService.removeUser(user.id).subscribe();
   }
 }

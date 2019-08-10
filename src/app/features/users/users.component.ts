@@ -30,4 +30,8 @@ export class UsersComponent implements OnInit {
   removeUser(user: User) {
     this.usersService.removeUser(user.id).subscribe();
   }
+
+  searchUsers(query: string) {
+    this.usersQuerySubject.next(query);
+  }
 }
